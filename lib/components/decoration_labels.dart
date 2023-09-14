@@ -8,14 +8,14 @@ InputDecoration GetAuthenticationInputDecoration(String Label) {
     filled: true,
     contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         color: Colors.black,
         width: 2,
       ),
       borderRadius: BorderRadius.circular(15),
     ),
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         color: Colors.black,
         width: 2,
       ),
