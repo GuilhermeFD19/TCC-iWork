@@ -7,3 +7,13 @@ class MyColors {
   static const Color backgroundColor = Color.fromARGB(255, 240, 159, 38);
   static const Color textColor = Color.fromARGB(255, 0, 0, 0);
 }
+
+class MyBorders {
+  static const OutlineInputBorder inputBorder = OutlineInputBorder(
+    borderSide: BorderSide(
+      color: MyColors.buttonColor,
+      width: 4,
+    ),
+    borderRadius: BorderRadius.all(Radius.circular(15)),
+  );
+}

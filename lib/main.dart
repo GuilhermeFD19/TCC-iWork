@@ -1,8 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:iwork_project/screens/auth_screen.dart';
-import 'package:iwork_project/screens/home.dart';
+import 'package:iwork_project/screens/home/base_view.dart';
+import 'package:iwork_project/screens/login.dart';
+import 'package:iwork_project/screens/home/home.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -12,7 +21,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AuthScreen(),
+      home: RoteadorTela(),
     );
+  }
+}
+
+class RoteadorTela extends StatelessWidget {
+  const RoteadorTela({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.userChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return BaseView();
+          } else {
+            print("qualquer xcoisa");
+            return const AuthScreen();
+          }
+        });
   }
 }
