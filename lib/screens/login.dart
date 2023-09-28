@@ -25,6 +25,19 @@ class _AuthScreenState extends State<AuthScreen> {
 
   AutenticationServices _authService = AutenticationServices();
 
+  Color color = Color.fromARGB(255, 182, 176, 182);
+  alterarCorClicado() {
+    setState(() {
+      color = Color.fromARGB(255, 102, 102, 73);
+    });
+  }
+
+  alterarCorDesclicado() {
+    setState(() {
+      color = Color.fromARGB(255, 126, 123, 126);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,11 +96,25 @@ class _AuthScreenState extends State<AuthScreen> {
                           filled: true,
                           labelText: 'E-mail',
                           hintText: 'E-mail',
-                          prefixIcon: Icon(Icons.email),
+                          prefixIcon: Icon(Icons.email_sharp, color: color),
+                          iconColor: Colors.black,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: color, width: 3.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelStyle: TextStyle(
+                            fontSize: 16,
+                            color: color,
+                          ),
                         ),
+                        onTap: () => alterarCorClicado(),
+                        onTapOutside: (event) {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          alterarCorDesclicado();
+                        },
                         validator: (String? value) {
                           if (value == null) {
                             return "E-mail é obrigatório";
@@ -109,12 +136,25 @@ class _AuthScreenState extends State<AuthScreen> {
                           filled: true,
                           labelText: 'Senha',
                           hintText: 'Senha',
-                          prefixIcon: Icon(Icons.lock),
+                          prefixIcon: Icon(Icons.lock, color: color),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: color, width: 3.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelStyle: TextStyle(
+                            fontSize: 16,
+                            color: color,
+                          ),
                         ),
                         obscureText: true,
+                        onTap: () => alterarCorClicado(),
+                        onTapOutside: (event) {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          alterarCorDesclicado();
+                        },
                         validator: (String? value) {
                           if (value == null) {
                             return "A senha não pode ser vazia";
@@ -138,14 +178,28 @@ class _AuthScreenState extends State<AuthScreen> {
                                 filled: true,
                                 labelText: 'Confirmar Senha',
                                 hintText: 'Confirmar Senha',
-                                prefixIcon: Icon(Icons.lock),
+                                prefixIcon: Icon(Icons.lock, color: color),
                                 iconColor: Colors.black,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: color, width: 3.0),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                labelStyle: TextStyle(
+                                  fontSize: 16,
+                                  color: color,
+                                ),
                               ),
                               obscureText: true,
                               controller: _senhaRepeticao,
+                              onTap: () => alterarCorClicado(),
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus?.unfocus();
+                                alterarCorDesclicado();
+                              },
                               validator: (String? value) {
                                 if (value == null) {
                                   return "A cofirmação de senha não pode ser vazia";
@@ -170,12 +224,27 @@ class _AuthScreenState extends State<AuthScreen> {
                                 filled: true,
                                 labelText: 'Nome',
                                 hintText: 'Nome',
-                                prefixIcon: Icon(Icons.person),
+                                prefixIcon: Icon(Icons.person, color: color),
+                                iconColor: Colors.black,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: color, width: 3.0),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                labelStyle: TextStyle(
+                                  fontSize: 16,
+                                  color: color,
+                                ),
                               ),
                               controller: _nomeController,
+                              onTap: () => alterarCorClicado(),
+                              onTapOutside: (event) {
+                                FocusManager.instance.primaryFocus?.unfocus();
+                                alterarCorDesclicado();
+                              },
                               validator: (String? value) {
                                 if (value == null) {
                                   return "O nome não pode ser vazio";

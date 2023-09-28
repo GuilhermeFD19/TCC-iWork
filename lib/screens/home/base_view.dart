@@ -2,54 +2,59 @@ import 'package:flutter/material.dart';
 import 'package:iwork_project/screens/home/home.dart';
 import 'package:iwork_project/screens/home/profile.dart';
 import 'package:iwork_project/screens/home/search.dart';
+import 'package:iwork_project/splash_screen.dart';
 
 class BaseView extends StatefulWidget {
+  AppBar appBar;
+  Widget body;
+  int index;
+  BaseView(
+      {Key? key, required this.appBar, required this.body, required this.index})
+      : super(key: key);
+
   @override
   _BaseViewState createState() => _BaseViewState();
 }
 
 class _BaseViewState extends State<BaseView> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [
-    ScreenHome(),
-    SearchScreen(),
-    ProfileScreen(),
-  ];
-
-  void onTabTapped(int index) {
-    print(index);
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Column(children: [
-          Text(
-            "iWork",
-            style: const TextStyle(fontSize: 22),
-          ),
-          Text(
-            "oi",
-            style: const TextStyle(fontSize: 15),
-          ),
-        ]),
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: Color.fromARGB(255, 55, 63, 55),
-        toolbarHeight: 72.0,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-        ),
-      ),
-      body: _children[_currentIndex],
+      body: widget.body,
+      appBar: widget.appBar,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
+        onTap: (value) {
+          switch (value) {
+            case 0:
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScreenHome(),
+                  ));
+              break;
+            case 1:
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SearchScreen(),
+                  ));
+              break;
+            case 2:
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfileScreen(),
+                  ));
+              break;
+            default:
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScreenHome(),
+                  ));
+          }
+        },
+        currentIndex: widget.index,
         backgroundColor: Theme.of(context).primaryColorLight,
         items: const [
           BottomNavigationBarItem(
