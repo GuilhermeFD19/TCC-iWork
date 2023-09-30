@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iwork_project/models/autonomous_models.dart';
 import 'package:iwork_project/models/avaliacao_models.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
-import 'package:iwork_project/screens/home/desc_autonomous.dart';
+import 'package:iwork_project/screens/home/search.dart';
 
 class ScreenHome extends StatelessWidget {
   ScreenHome({super.key});

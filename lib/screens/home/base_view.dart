@@ -36,7 +36,7 @@ class _BaseViewState extends State<BaseView> {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SearchScreen(),
+                    builder: (context) => ProfessionalListScreen(),
                   ));
               break;
             case 2:
@@ -55,7 +55,9 @@ class _BaseViewState extends State<BaseView> {
           }
         },
         currentIndex: widget.index,
-        backgroundColor: Theme.of(context).primaryColorLight,
+        backgroundColor: Color.fromARGB(255, 55, 63, 55),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white.withOpacity(0.5),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
