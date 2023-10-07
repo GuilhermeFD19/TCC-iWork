@@ -1,9 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:iwork_project/screens/home/base_view.dart';
+import 'package:iwork_project/providers/auth_provider.dart';
+
 import 'package:iwork_project/screens/login.dart';
 import 'package:iwork_project/screens/home/home.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
@@ -12,7 +14,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,25 +25,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RoteadorTela(),
-    );
-  }
-}
-
-class RoteadorTela extends StatelessWidget {
-  const RoteadorTela({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.userChanges(),
+      home: FutureBuilder(
+        future: AuthProvider.getToken(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ScreenHome();
+            if (snapshot.data == true) {
+              return ScreenHome();
+            } else {
+              return AuthScreen();
+            }
           } else {
-            print("qualquer coisa");
-            return const AuthScreen();
+            return Container(
+              color: Colors.white,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
           }
-        });
+        },
+      ),
+    );
   }
 }

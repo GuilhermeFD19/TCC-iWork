@@ -3,9 +3,11 @@ import 'package:iwork_project/_comum/color_base.dart';
 import 'package:iwork_project/_comum/snackbar.dart';
 import 'package:iwork_project/components/decoration_labels.dart';
 import 'package:iwork_project/main.dart';
+import 'package:iwork_project/providers/auth_provider.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
 import 'package:iwork_project/screens/home/home.dart';
 import 'package:iwork_project/services/auth_services.dart';
+import 'package:provider/provider.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -318,13 +320,27 @@ class _AuthScreenState extends State<AuthScreen> {
             .then((String? erro) {
           if (erro != null) {
             showSnackbar(
-                context: context, texto: "Falha no Login!!", isErro: false);
+              context: context,
+              texto: "Falha no Login!!",
+              isErro: false,
+            );
           } else {
             if (mounted) {
               showSnackbar(
-                  context: context, texto: "Logou com sucesso!!", isErro: true);
+                context: context,
+                texto: "Logou com sucesso!!",
+                isErro: true,
+              );
+              AuthProvider.setToken(true);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScreenHome(),
+                ),
+              );
 
               /*  Navigator.pushReplacement(
+
                 context,
                 MaterialPageRoute(
                   builder: (context) => BaseView(),
@@ -352,6 +368,14 @@ class _AuthScreenState extends State<AuthScreen> {
                   context: context,
                   texto: "Cadastrado com sucesso!!",
                   isErro: true);
+
+              AuthProvider.setToken(true);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScreenHome(),
+                ),
+              );
             }
           }
         });

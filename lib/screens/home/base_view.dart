@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:iwork_project/screens/home/home.dart';
 import 'package:iwork_project/screens/home/profile.dart';
 import 'package:iwork_project/screens/home/search.dart';
@@ -26,6 +27,9 @@ class _BaseViewState extends State<BaseView> {
         onTap: (value) {
           switch (value) {
             case 0:
+              if (widget.index == value) {
+                break;
+              }
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -33,6 +37,9 @@ class _BaseViewState extends State<BaseView> {
                   ));
               break;
             case 1:
+              if (widget.index == value) {
+                break;
+              }
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -40,6 +47,9 @@ class _BaseViewState extends State<BaseView> {
                   ));
               break;
             case 2:
+              if (widget.index == value) {
+                break;
+              }
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(

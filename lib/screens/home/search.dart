@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:iwork_project/models/autonomous_models.dart';
+import 'package:iwork_project/repository/autonomous_repository.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
-import 'package:iwork_project/screens/home/home.dart';
-import 'package:iwork_project/splash_screen.dart';
+import 'package:iwork_project/screens/home/category_detail.dart';
 
 void main() {
   runApp(descAutoo());
@@ -29,10 +31,8 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
     'Carpinteiro',
     'Pintor',
     'Pedreiro',
-    'Jardineiro',
-    'Jardineiro',
-    'Jardineiro',
-    'Jardineiro',
+    'Cabeleireiro',
+    'Manicure',
   ];
 
   List<String> filteredProfessionals = [];
@@ -100,7 +100,11 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ScreenHome()),
+                    MaterialPageRoute(
+                      builder: (context) => DetailHomeScreen(
+                        categoria: filtered,
+                      ),
+                    ),
                   );
                 },
                 child: Text(

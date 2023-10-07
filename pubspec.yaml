@@ -17,6 +17,28 @@ dependencies:
   shared_preferences: ^2.0.6
   http: ^0.13.3
   modal_bottom_sheet: ^2.0.0
+  flutter_native_splash: ^1.2.1
+  flutter_launcher_icons: ^0.9.2
+  flutter_svg: ^0.22.0
+  provider: ^6.0.1
+  hive: ^2.0.4
+  path_provider: ^2.0.2
+
+
+
+flutter_native_splash:
+  color: "#FE9C00"
+  image: assets/vetor.png
+  android: true
+  ios: true
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/vetor.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/newlogo.png"
+
 
 dev_dependencies:
   flutter_test:
