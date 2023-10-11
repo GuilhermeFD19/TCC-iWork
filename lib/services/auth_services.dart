@@ -7,6 +7,7 @@ class AutenticationServices {
     required String nome,
     required String email,
     required String senha,
+    required String confirmaSenha,
   }) async {
     try {
       UserCredential userCredential =

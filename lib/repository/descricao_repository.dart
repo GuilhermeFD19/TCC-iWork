@@ -1,0 +1,95 @@
+import 'package:iwork_project/models/autonomous_models.dart';
+import 'package:iwork_project/models/descricao_models.dart';
+
+class DescricaoRepository {
+  final List<DescricaoModels> listaDescricao = [
+    DescricaoModels(
+      id: '1',
+      endereco: '123 Rua Principal, Cidade',
+      descricao: 'Reparo de encanamento residencial.',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 9:00 AM - 5:00 PM',
+      ratingEstrelas: 4.5,
+    ),
+    DescricaoModels(
+      id: '2',
+      endereco: '456 Avenida Secundária, Cidade',
+      descricao: 'Instalação elétrica e reparos.',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 8:00 AM - 6:00 PM',
+      ratingEstrelas: 4.0,
+    ),
+    DescricaoModels(
+      id: '3',
+      endereco: '789 Rua da Construção, Cidade',
+      descricao: 'Reparos e construção de alvenaria.',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 10:00 AM - 4:00 PM',
+      ratingEstrelas: 4.2,
+    ),
+    DescricaoModels(
+      id: '4',
+      endereco: '246 Rua das Cores, Cidade',
+      descricao: 'Pintura de paredes e móveis.',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 9:30 AM - 5:30 PM',
+      ratingEstrelas: 4.7,
+    ),
+    DescricaoModels(
+      id: '5',
+      endereco: '567 Avenida das Tubulações, Cidade',
+      descricao: 'Reparos de dutos e encanamentos.',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 8:30 AM - 6:30 PM',
+      ratingEstrelas: 4.3,
+    ),
+    DescricaoModels(
+      id: '6',
+      endereco: '101 Rua das Flores, Cidade',
+      descricao: 'Poda de árvores e plantas em geral.',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 9:00 AM - 5:00 PM',
+      ratingEstrelas: 4.9,
+    ),
+    DescricaoModels(
+      id: '7',
+      endereco: 'Rua da Saudade, 416',
+      descricao: 'Serviços de unha e pés',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sex: 8:00 AM - 5:30 PM',
+      ratingEstrelas: 4.2,
+    ),
+    DescricaoModels(
+      id: '8',
+      endereco: 'Rua da Saudade, 416',
+      descricao: 'Serviços de cabelo',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
+      ratingEstrelas: 5.0,
+    ),
+    DescricaoModels(
+      id: '9',
+      endereco: 'Rua da Saudade, 416',
+      descricao: 'Serviços de cabelo',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
+      ratingEstrelas: 5.0,
+    ),
+    DescricaoModels(
+      id: '10',
+      endereco: 'Rua da Saudade, 416',
+      descricao: 'Serviços de cabelo',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
+      ratingEstrelas: 5.0,
+    ),
+    DescricaoModels(
+      id: '11',
+      endereco: 'Rua da Saudade, 416',
+      descricao: 'Serviços de cabelo',
+      tipoAtendimento: 'A domicílio',
+      horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
+      ratingEstrelas: 5.0,
+    ),
+  ];
+}

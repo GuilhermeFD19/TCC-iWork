@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:iwork_project/models/autonomous_models.dart';
-import 'package:iwork_project/repository/autonomous_repository.dart';
+
 import 'package:iwork_project/screens/home/base_view.dart';
 import 'package:iwork_project/screens/home/category_detail.dart';
 
@@ -44,36 +43,6 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
   }
 
   List<AutonomousModels> listadeautonomos = [];
-  void adicionarAutonomo() {
-    listadeautonomos.add(AutonomousModels(
-      id: '1',
-      name: 'José Amparo',
-      autonomous: 'Pedreiro',
-      description: 'Reparo de encanamento residencial.',
-      urlImage: 'assets/logo.png',
-    ));
-    listadeautonomos.add(AutonomousModels(
-      id: '2',
-      name: 'Eletricista',
-      autonomous: 'Eletricista',
-      description: 'Instalação elétrica e reparos.',
-      urlImage: 'assets/logo.png',
-    ));
-    listadeautonomos.add(AutonomousModels(
-      id: '3',
-      name: 'Pedreiro',
-      autonomous: 'Pedreiro',
-      description: 'Reparos e construção de alvenaria.',
-      urlImage: 'assets/logo.png',
-    ));
-    listadeautonomos.add(AutonomousModels(
-      id: '4',
-      name: 'Pedreiro',
-      autonomous: 'Pedreiro',
-      description: 'Reparos e construção de alvenaria.',
-      urlImage: 'assets/logo.png',
-    ));
-  }
 
   void filterProfessionals(String query) {
     setState(() {
@@ -90,6 +59,9 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
 
     for (var filtered in filteredProfessionals) {
       Card card = Card(
+        elevation: 3.8,
+        margin: const EdgeInsets.all(8.0),
+        color: Color.fromARGB(255, 53, 160, 223),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -103,6 +75,8 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
                     MaterialPageRoute(
                       builder: (context) => DetailHomeScreen(
                         categoria: filtered,
+                        nome: filtered,
+                        autonomous: filtered,
                       ),
                     ),
                   );
@@ -110,7 +84,12 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
                 child: Text(
                   filtered,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Arial',
+                  ),
                 ),
               ),
             ),
@@ -123,7 +102,7 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
     return BaseView(
       index: 1,
       appBar: AppBar(
-        title: Column(
+        title: const Column(
           children: [
             Text(
               "Procurar Autonomo",
@@ -152,7 +131,7 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               onChanged: filterProfessionals,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 fillColor: Color.fromARGB(255, 255, 254, 249),
                 filled: true,
                 labelText: 'Pesquisar Profissionais',
@@ -162,8 +141,8 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Text(
               "Categorias",
               style: TextStyle(

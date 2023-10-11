@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:iwork_project/screens/home/home.dart';
 import 'package:iwork_project/screens/home/profile.dart';
 import 'package:iwork_project/screens/home/search.dart';
-import 'package:iwork_project/splash_screen.dart';
 
 class BaseView extends StatefulWidget {
   AppBar appBar;

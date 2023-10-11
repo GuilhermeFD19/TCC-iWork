@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:iwork_project/models/autonomous_models.dart';
-import 'package:iwork_project/models/avaliacao_models.dart';
 import 'package:iwork_project/repository/autonomous_repository.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
+import 'package:iwork_project/screens/home/descricao_autonomo.dart';
 import 'package:iwork_project/screens/home/search.dart';
 
 class DetailHomeScreen extends StatelessWidget {
   String categoria;
-  DetailHomeScreen({super.key, required this.categoria});
+  String nome;
+  String autonomous;
+
+  DetailHomeScreen(
+      {super.key,
+      required this.categoria,
+      required this.nome,
+      required this.autonomous});
 
   AutonomousRepository autonomousRepository = AutonomousRepository();
   List<AutonomousModels> listaAvaliacao = [];
@@ -61,47 +68,95 @@ class AutonomousCard extends StatelessWidget {
 
   AutonomousCard({super.key, required this.autonomous});
 
+  Icon selectIcon(String categoria) {
+    switch (categoria) {
+      case "Eletricista":
+        return Icon(Icons.electrical_services);
+      case "Encanador":
+        return Icon(Icons.water_damage);
+      case "Pedreiro":
+        return Icon(Icons.construction);
+      case "Pintor":
+        return Icon(Icons.format_paint);
+      case "Carpinteiro":
+        return Icon(Icons.eco);
+      case "Manicure":
+        return Icon(Icons.woman_2_outlined);
+      case "Cabeleireiro":
+        return Icon(Icons.cut_outlined);
+
+      default:
+        return Icon(Icons.person);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Card(
-        child: InkWell(
-          onTap: () {},
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: const Image(
-                  image: AssetImage('assets/newlogo.png'),
-                  width: 100,
-                  height: 100,
-                ),
-              ),
-              ListTile(
-                title: Text(autonomous.name),
-                subtitle: Text(autonomous.autonomous),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Icon(Icons.star, color: Colors.yellow[600]),
-                  TextButton(
-                      child: const Text('VER PERFIL'),
-                      onPressed: () {/* ... */}),
-                  const SizedBox(width: 8),
-                  TextButton(
-                    child: const Text('AVALIAR'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => descAutoo()),
-                      );
-                    },
+      child: Padding(
+        padding: const EdgeInsets.all(7.0),
+        child: Card(
+          elevation: 3.8,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DescricaoAutonomoScreen(
+                    categoria: autonomous.autonomous,
+                    nome: autonomous.name,
+                    autonomoId: autonomous.id,
+                    descricao: autonomous.description.descricao,
                   ),
-                ],
-              ),
-            ],
+                ),
+              );
+            },
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: selectIcon(
+                    autonomous.autonomous,
+                  ),
+                ),
+                ListTile(
+                  title: Text(autonomous.name),
+                  subtitle: Text(autonomous.autonomous),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Icon(Icons.star, color: Colors.yellow[600]),
+                    TextButton(
+                        child: const Text('VER PERFIL'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DescricaoAutonomoScreen(
+                                categoria: autonomous.autonomous,
+                                nome: autonomous.name,
+                                autonomoId: autonomous.id,
+                                descricao: autonomous.description.descricao,
+                              ),
+                            ),
+                          );
+                        }),
+                    const SizedBox(width: 8),
+                    TextButton(
+                      child: const Text('AVALIAR'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => descAutoo()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,8 +1,10 @@
+import 'package:iwork_project/models/descricao_models.dart';
+
 class AutonomousModels {
   String id;
   String name;
   String autonomous;
-  String description;
+  DescricaoModels description;
 
   String? urlImage;
 

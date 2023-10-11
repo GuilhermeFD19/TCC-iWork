@@ -22,7 +22,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _senhaController = TextEditingController();
-  TextEditingController _senhaRepeticao = TextEditingController();
+  TextEditingController _confirmaSenha = TextEditingController();
   TextEditingController _nomeController = TextEditingController();
 
   AutenticationServices _authService = AutenticationServices();
@@ -80,7 +80,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
+                      const Text(
                         "Seja Bem-Vindo!",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -196,7 +196,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 ),
                               ),
                               obscureText: true,
-                              controller: _senhaRepeticao,
+                              controller: _confirmaSenha,
                               onTap: () => alterarCorClicado(),
                               onTapOutside: (event) {
                                 FocusManager.instance.primaryFocus?.unfocus();
@@ -205,6 +205,9 @@ class _AuthScreenState extends State<AuthScreen> {
                               validator: (String? value) {
                                 if (value == null) {
                                   return "A cofirmação de senha não pode ser vazia";
+                                }
+                                if (value != _senhaController.text) {
+                                  return "As senhas não são iguais";
                                 }
                                 if (value.length < 5) {
                                   return "A confirmação de senha é curta";
@@ -306,6 +309,7 @@ class _AuthScreenState extends State<AuthScreen> {
     String nome = _nomeController.text;
     String email = _emailController.text;
     String senha = _senhaController.text;
+    String confirmaSenha = _confirmaSenha.text;
 
     if (_formKey.currentState!.validate()) {
       if (login) {
@@ -352,12 +356,13 @@ class _AuthScreenState extends State<AuthScreen> {
       } else {
         print("Cadastro validado");
         print(
-            "${_emailController.text}, ${_senhaController.text}, ${_nomeController.text},");
+            "${_emailController.text}, ${_senhaController.text}, ${_nomeController.text}, ${_confirmaSenha.text}");
         _authService
             .cadastrarUsuarios(
           nome: nome,
           email: email,
           senha: senha,
+          confirmaSenha: confirmaSenha,
         )
             .then((String? erro) {
           if (erro != null) {
