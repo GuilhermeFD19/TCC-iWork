@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iwork_project/_comum/select_icon.dart';
 import 'package:iwork_project/models/autonomous_models.dart';
 import 'package:iwork_project/repository/autonomous_repository.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
@@ -64,31 +65,10 @@ class DetailHomeScreen extends StatelessWidget {
 }
 
 class AutonomousCard extends StatelessWidget {
+  SelectIcon selectIcon = SelectIcon();
   AutonomousModels autonomous;
 
   AutonomousCard({super.key, required this.autonomous});
-
-  Icon selectIcon(String categoria) {
-    switch (categoria) {
-      case "Eletricista":
-        return Icon(Icons.electrical_services);
-      case "Encanador":
-        return Icon(Icons.water_damage);
-      case "Pedreiro":
-        return Icon(Icons.construction);
-      case "Pintor":
-        return Icon(Icons.format_paint);
-      case "Carpinteiro":
-        return Icon(Icons.eco);
-      case "Manicure":
-        return Icon(Icons.woman_2_outlined);
-      case "Cabeleireiro":
-        return Icon(Icons.cut_outlined);
-
-      default:
-        return Icon(Icons.person);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,9 +96,7 @@ class AutonomousCard extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: selectIcon(
-                    autonomous.autonomous,
-                  ),
+                  child: selectIcon.selection(autonomous.autonomous),
                 ),
                 ListTile(
                   title: Text(autonomous.name),

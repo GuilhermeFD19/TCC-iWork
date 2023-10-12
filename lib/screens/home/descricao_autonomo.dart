@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iwork_project/models/descricao_models.dart';
 import 'package:iwork_project/repository/descricao_repository.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
-import 'package:iwork_project/screens/home/category_detail.dart';
 
 class DescricaoAutonomoScreen extends StatelessWidget {
   final String nome;
@@ -28,11 +27,13 @@ class DescricaoAutonomoScreen extends StatelessWidget {
       case "Pintor":
         return Icon(Icons.format_paint);
       case "Carpinteiro":
-        return Icon(Icons.eco);
+        return Icon(Icons.handyman);
       case "Manicure":
         return Icon(Icons.woman_2_outlined);
       case "Cabeleireiro":
         return Icon(Icons.cut_outlined);
+      case "Jardineiro":
+        return Icon(Icons.sunny);
 
       default:
         return Icon(Icons.person);

@@ -100,15 +100,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style:
                   ElevatedButton.styleFrom(primary: MyColors.backgroundColor),
               onPressed: () {
-                // Implemente a lógica para trocar a senha do usuário aqui
-              },
-              child: Text('Trocar Senha'),
-            ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              style:
-                  ElevatedButton.styleFrom(primary: MyColors.backgroundColor),
-              onPressed: () {
                 _signOut();
               },
               child: Text('Sair'),
