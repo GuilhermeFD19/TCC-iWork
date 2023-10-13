@@ -8,12 +8,14 @@ class DescricaoAutonomoScreen extends StatelessWidget {
   final String categoria;
   final String autonomoId;
   final String descricao;
+  final String telefone;
 
   DescricaoAutonomoScreen({
     required this.nome,
     required this.categoria,
     required this.autonomoId,
     required this.descricao,
+    required this.telefone,
   });
 
   Icon selectIcon(String categoria) {
@@ -34,6 +36,8 @@ class DescricaoAutonomoScreen extends StatelessWidget {
         return Icon(Icons.cut_outlined);
       case "Jardineiro":
         return Icon(Icons.sunny);
+      case "Desenvolvedor":
+        return Icon(Icons.computer);
 
       default:
         return Icon(Icons.person);
@@ -125,6 +129,11 @@ class DescricaoAutonomoScreen extends StatelessWidget {
             SizedBox(height: 23.0),
             Text(
               'Horário de Funcionamento: ${autonomo.horarioFuncionamento}',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 23.0),
+            Text(
+              'Telefone: ${telefone}',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 23.0),

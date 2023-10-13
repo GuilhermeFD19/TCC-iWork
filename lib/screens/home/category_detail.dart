@@ -4,6 +4,7 @@ import 'package:iwork_project/models/autonomous_models.dart';
 import 'package:iwork_project/repository/autonomous_repository.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
 import 'package:iwork_project/screens/home/descricao_autonomo.dart';
+import 'package:iwork_project/screens/home/rating_bar.dart';
 import 'package:iwork_project/screens/home/search.dart';
 
 class DetailHomeScreen extends StatelessWidget {
@@ -87,6 +88,7 @@ class AutonomousCard extends StatelessWidget {
                     nome: autonomous.name,
                     autonomoId: autonomous.id,
                     descricao: autonomous.description.descricao,
+                    telefone: autonomous.telefone,
                   ),
                 ),
               );
@@ -105,8 +107,12 @@ class AutonomousCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Icon(Icons.star, color: Colors.yellow[600]),
                     TextButton(
+                        style: TextButton.styleFrom(
+                          primary: Colors.white,
+                          backgroundColor: Colors.amber[500],
+                          onSurface: Colors.grey,
+                        ),
                         child: const Text('VER PERFIL'),
                         onPressed: () {
                           Navigator.push(
@@ -117,6 +123,7 @@ class AutonomousCard extends StatelessWidget {
                                 nome: autonomous.name,
                                 autonomoId: autonomous.id,
                                 descricao: autonomous.description.descricao,
+                                telefone: autonomous.telefone,
                               ),
                             ),
                           );
@@ -127,7 +134,8 @@ class AutonomousCard extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => descAutoo()),
+                          MaterialPageRoute(
+                              builder: (context) => RatingScreen()),
                         );
                       },
                     ),

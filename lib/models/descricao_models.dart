@@ -8,6 +8,7 @@ class DescricaoModels {
   final String tipoAtendimento;
   final String horarioFuncionamento;
   final double ratingEstrelas;
+  final String telefone;
 
   DescricaoModels({
     required this.id,
@@ -16,6 +17,7 @@ class DescricaoModels {
     required this.tipoAtendimento,
     required this.horarioFuncionamento,
     required this.ratingEstrelas,
+    required this.telefone,
   });
 
   DescricaoModels.fromMap(Map<String, dynamic> map)
@@ -24,7 +26,8 @@ class DescricaoModels {
         descricao = map['descricao'],
         tipoAtendimento = map['tipoAtendimento'],
         horarioFuncionamento = map['horarioFuncionamento'],
-        ratingEstrelas = map['ratingEstrelas'];
+        ratingEstrelas = map['ratingEstrelas'],
+        telefone = map['telefone'];
 
   Map<String, dynamic> toMap() {
     return {
@@ -34,6 +37,7 @@ class DescricaoModels {
       'tipoAtendimento': tipoAtendimento,
       'horarioFuncionamento': horarioFuncionamento,
       'ratingEstrelas': ratingEstrelas,
+      'telefone': telefone,
     };
   }
 }

@@ -13,8 +13,8 @@ showSnackbar(
         borderRadius: BorderRadius.vertical(top: Radius.circular(15))),
     duration: const Duration(seconds: 4),
     action: SnackBarAction(
-        label: 'Fechar',
         textColor: Colors.white,
+        label: 'Fechar',
         onPressed: () {
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
         }),

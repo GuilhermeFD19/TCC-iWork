@@ -1,19 +1,31 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iwork_project/_comum/color_base.dart';
 import 'package:iwork_project/_comum/snackbar.dart';
-import 'package:iwork_project/components/decoration_labels.dart';
-import 'package:iwork_project/main.dart';
 import 'package:iwork_project/providers/auth_provider.dart';
-import 'package:iwork_project/screens/home/base_view.dart';
 import 'package:iwork_project/screens/home/home.dart';
 import 'package:iwork_project/services/auth_services.dart';
-import 'package:provider/provider.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
   @override
   State<AuthScreen> createState() => _AuthScreenState();
+}
+
+void checkInternetConnectivity() async {
+  var connectivityResult = await (Connectivity().checkConnectivity());
+  if (connectivityResult == ConnectivityResult.none) {
+    Fluttertoast.showToast(
+        msg: "Sem conexão com a internet",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: MyColors.buttonColor,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
 }
 
 class _AuthScreenState extends State<AuthScreen> {
@@ -164,6 +176,9 @@ class _AuthScreenState extends State<AuthScreen> {
                           if (value.length < 5) {
                             return "A senha é curta";
                           }
+                          if (value == _nomeController) {
+                            return "A senha é igual o nome do usuário";
+                          }
                           return null;
                         },
                       ),
@@ -311,6 +326,17 @@ class _AuthScreenState extends State<AuthScreen> {
     String senha = _senhaController.text;
     String confirmaSenha = _confirmaSenha.text;
 
+    if (login) {
+      checkInternetConnectivity();
+    } else {
+      checkInternetConnectivity();
+    }
+    if (_formKey.currentState!.validate()) {
+      checkInternetConnectivity();
+    } else {
+      checkInternetConnectivity();
+    }
+
     if (_formKey.currentState!.validate()) {
       if (login) {
         print("Entrou com sucesso");
@@ -366,7 +392,11 @@ class _AuthScreenState extends State<AuthScreen> {
         )
             .then((String? erro) {
           if (erro != null) {
-            showSnackbar(context: context, texto: erro);
+            showSnackbar(
+              context: context,
+              texto: "Falha no Cadastro!!",
+              isErro: false,
+            );
           } else {
             if (mounted) {
               showSnackbar(

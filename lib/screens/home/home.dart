@@ -31,7 +31,7 @@ class ScreenHome extends StatelessWidget {
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Color.fromARGB(255, 55, 63, 55),
-        toolbarHeight: 72.0,
+        toolbarHeight: 112.0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
@@ -95,11 +95,20 @@ class AutonomosEmDestaque extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           children: [
             DestaqueCard(
+              nome: autonomos[11].name,
+              categoria: autonomos[11].autonomous,
+              icone: selectIcon.selection(autonomos[11].autonomous),
+              autonomoId: autonomos[11].id,
+              descricao: autonomos[11].description.descricao,
+              telefone: autonomos[11].telefone,
+            ),
+            DestaqueCard(
               nome: autonomos[4].name,
               categoria: autonomos[4].autonomous,
               icone: selectIcon.selection(autonomos[4].autonomous),
               autonomoId: autonomos[4].id,
               descricao: autonomos[4].description.descricao,
+              telefone: autonomos[4].telefone,
             ),
             DestaqueCard(
               nome: autonomos[0].name,
@@ -107,6 +116,7 @@ class AutonomosEmDestaque extends StatelessWidget {
               icone: selectIcon.selection(autonomos[0].autonomous),
               autonomoId: autonomos[0].id,
               descricao: autonomos[0].description.descricao,
+              telefone: autonomos[0].telefone,
             ),
             DestaqueCard(
               nome: autonomos[3].name,
@@ -114,6 +124,7 @@ class AutonomosEmDestaque extends StatelessWidget {
               icone: selectIcon.selection(autonomos[3].autonomous),
               autonomoId: autonomos[3].id,
               descricao: autonomos[3].description.descricao,
+              telefone: autonomos[3].telefone,
             ),
             DestaqueCard(
               nome: autonomos[1].name,
@@ -121,6 +132,7 @@ class AutonomosEmDestaque extends StatelessWidget {
               icone: selectIcon.selection(autonomos[1].autonomous),
               autonomoId: autonomos[1].id,
               descricao: autonomos[1].description.descricao,
+              telefone: autonomos[1].telefone,
             ),
             DestaqueCard(
               nome: autonomos[6].name,
@@ -128,6 +140,7 @@ class AutonomosEmDestaque extends StatelessWidget {
               icone: selectIcon.selection(autonomos[6].autonomous),
               autonomoId: autonomos[6].id,
               descricao: autonomos[6].description.descricao,
+              telefone: autonomos[6].telefone,
             ),
             DestaqueCard(
               nome: autonomos[2].name,
@@ -135,6 +148,7 @@ class AutonomosEmDestaque extends StatelessWidget {
               icone: selectIcon.selection(autonomos[2].autonomous),
               autonomoId: autonomos[2].id,
               descricao: autonomos[2].description.descricao,
+              telefone: autonomos[2].telefone,
             ),
             DestaqueCard(
               nome: autonomos[5].name,
@@ -142,6 +156,7 @@ class AutonomosEmDestaque extends StatelessWidget {
               icone: selectIcon.selection(autonomos[5].autonomous),
               autonomoId: autonomos[5].id,
               descricao: autonomos[5].description.descricao,
+              telefone: autonomos[5].telefone,
             ),
           ],
         ),
@@ -156,6 +171,7 @@ class DestaqueCard extends StatelessWidget {
   Icon icone;
   String autonomoId;
   String descricao;
+  String telefone;
 
   DestaqueCard({
     super.key,
@@ -164,6 +180,7 @@ class DestaqueCard extends StatelessWidget {
     required this.icone,
     required this.autonomoId,
     required this.descricao,
+    required this.telefone,
   });
 
   @override
@@ -179,7 +196,8 @@ class DestaqueCard extends StatelessWidget {
                   nome: nome,
                   categoria: categoria,
                   autonomoId: autonomoId,
-                  descricao: descricao);
+                  descricao: descricao,
+                  telefone: telefone);
             })); // Implemente a navegação para a página de descrição
           },
           child: Wrap(
@@ -217,11 +235,20 @@ class ProfissionaisNovos extends StatelessWidget {
           ),
           children: [
             CardProfissionais(
+              nome: autonomos[11].name,
+              categoria: autonomos[11].autonomous,
+              icone: selectIcon.selection(autonomos[11].autonomous),
+              autonomoId: autonomos[11].id,
+              descricao: autonomos[11].description.descricao,
+              telefone: autonomos[11].telefone,
+            ),
+            CardProfissionais(
               nome: autonomos[4].name,
               categoria: autonomos[4].autonomous,
               icone: selectIcon.selection(autonomos[4].autonomous),
               autonomoId: autonomos[4].id,
               descricao: autonomos[4].description.descricao,
+              telefone: autonomos[4].telefone,
             ),
             CardProfissionais(
               nome: autonomos[0].name,
@@ -229,6 +256,7 @@ class ProfissionaisNovos extends StatelessWidget {
               icone: selectIcon.selection(autonomos[0].autonomous),
               autonomoId: autonomos[0].id,
               descricao: autonomos[0].description.descricao,
+              telefone: autonomos[0].telefone,
             ),
             CardProfissionais(
               nome: autonomos[5].name,
@@ -236,6 +264,7 @@ class ProfissionaisNovos extends StatelessWidget {
               icone: selectIcon.selection(autonomos[5].autonomous),
               autonomoId: autonomos[5].id,
               descricao: autonomos[5].description.descricao,
+              telefone: autonomos[5].telefone,
             ),
             CardProfissionais(
               nome: autonomos[1].name,
@@ -243,6 +272,7 @@ class ProfissionaisNovos extends StatelessWidget {
               icone: selectIcon.selection(autonomos[1].autonomous),
               autonomoId: autonomos[1].id,
               descricao: autonomos[1].description.descricao,
+              telefone: autonomos[1].telefone,
             ),
 
             CardProfissionais(
@@ -251,6 +281,7 @@ class ProfissionaisNovos extends StatelessWidget {
               icone: selectIcon.selection(autonomos[3].autonomous),
               autonomoId: autonomos[3].id,
               descricao: autonomos[3].description.descricao,
+              telefone: autonomos[3].telefone,
             ),
 
             CardProfissionais(
@@ -259,6 +290,7 @@ class ProfissionaisNovos extends StatelessWidget {
               icone: selectIcon.selection(autonomos[2].autonomous),
               autonomoId: autonomos[2].id,
               descricao: autonomos[2].description.descricao,
+              telefone: autonomos[2].telefone,
             ),
 
             // Adicione mais CardProfissionais conforme necessário
@@ -275,6 +307,7 @@ class CardProfissionais extends StatelessWidget {
   Icon icone;
   String autonomoId;
   String descricao;
+  String telefone;
 
   CardProfissionais({
     super.key,
@@ -283,6 +316,7 @@ class CardProfissionais extends StatelessWidget {
     required this.icone,
     required this.autonomoId,
     required this.descricao,
+    required this.telefone,
   });
 
   @override
@@ -296,14 +330,15 @@ class CardProfissionais extends StatelessWidget {
                 nome: nome,
                 categoria: categoria,
                 autonomoId: autonomoId,
-                descricao: descricao);
+                descricao: descricao,
+                telefone: telefone);
           })); // Implemente a navegação para a página de descrição
         },
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(11.0),
               child: CircleAvatar(
                 backgroundColor: Colors.white,
                 child: icone,
@@ -334,11 +369,20 @@ class ListaProfissionais extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: [
         listaProfissionaisCard(
+          nome: autonomos[11].name,
+          categoria: autonomos[11].autonomous,
+          icone: selectIcon.selection(autonomos[11].autonomous),
+          autonomoId: autonomos[11].id,
+          descricao: autonomos[11].description.descricao,
+          telefone: autonomos[11].telefone,
+        ),
+        listaProfissionaisCard(
           nome: autonomos[0].name,
           categoria: autonomos[0].autonomous,
           icone: selectIcon.selection(autonomos[0].autonomous),
           autonomoId: autonomos[0].id,
           descricao: autonomos[0].description.descricao,
+          telefone: autonomos[0].telefone,
         ),
         listaProfissionaisCard(
           nome: autonomos[1].name,
@@ -346,6 +390,7 @@ class ListaProfissionais extends StatelessWidget {
           icone: selectIcon.selection(autonomos[1].autonomous),
           autonomoId: autonomos[1].id,
           descricao: autonomos[1].description.descricao,
+          telefone: autonomos[1].telefone,
         ),
         listaProfissionaisCard(
           nome: autonomos[2].name,
@@ -353,6 +398,7 @@ class ListaProfissionais extends StatelessWidget {
           icone: selectIcon.selection(autonomos[2].autonomous),
           autonomoId: autonomos[2].id,
           descricao: autonomos[2].description.descricao,
+          telefone: autonomos[2].telefone,
         ),
         listaProfissionaisCard(
           nome: autonomos[3].name,
@@ -360,6 +406,7 @@ class ListaProfissionais extends StatelessWidget {
           icone: selectIcon.selection(autonomos[3].autonomous),
           autonomoId: autonomos[3].id,
           descricao: autonomos[3].description.descricao,
+          telefone: autonomos[3].telefone,
         ),
         listaProfissionaisCard(
           nome: autonomos[4].name,
@@ -367,6 +414,7 @@ class ListaProfissionais extends StatelessWidget {
           icone: selectIcon.selection(autonomos[4].autonomous),
           autonomoId: autonomos[4].id,
           descricao: autonomos[4].description.descricao,
+          telefone: autonomos[4].telefone,
         ),
         listaProfissionaisCard(
           nome: autonomos[5].name,
@@ -374,6 +422,7 @@ class ListaProfissionais extends StatelessWidget {
           icone: selectIcon.selection(autonomos[5].autonomous),
           autonomoId: autonomos[5].id,
           descricao: autonomos[5].description.descricao,
+          telefone: autonomos[5].telefone,
         ),
       ],
     );
@@ -386,6 +435,7 @@ class listaProfissionaisCard extends StatelessWidget {
   Icon icone;
   String autonomoId;
   String descricao;
+  String telefone;
 
   listaProfissionaisCard(
       {super.key,
@@ -393,7 +443,8 @@ class listaProfissionaisCard extends StatelessWidget {
       required this.categoria,
       required this.icone,
       required this.autonomoId,
-      required this.descricao});
+      required this.descricao,
+      required this.telefone});
 
   @override
   Widget build(BuildContext context) {
@@ -410,7 +461,8 @@ class listaProfissionaisCard extends StatelessWidget {
                     nome: nome,
                     categoria: categoria,
                     autonomoId: autonomoId,
-                    descricao: descricao);
+                    descricao: descricao,
+                    telefone: telefone);
               })); // Implemente a navegação para a página de descrição
             },
             leading: CircleAvatar(

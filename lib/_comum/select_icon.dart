@@ -19,6 +19,8 @@ class SelectIcon {
         return Icon(Icons.cut_outlined);
       case "Jardineiro":
         return Icon(Icons.sunny);
+      case "Desenvolvedor":
+        return Icon(Icons.computer);
 
       default:
         return Icon(Icons.person);

@@ -14,8 +14,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sex: 9:00 AM - 5:00 PM',
         ratingEstrelas: 4.5,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '2',
@@ -28,8 +30,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sex: 8:00 AM - 6:00 PM',
         ratingEstrelas: 4.0,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '3',
@@ -42,8 +46,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sex: 10:00 AM - 4:00 PM',
         ratingEstrelas: 4.2,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '4',
@@ -56,8 +62,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sex: 9:30 AM - 5:30 PM',
         ratingEstrelas: 4.7,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '5',
@@ -70,8 +78,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sex: 8:30 AM - 6:30 PM',
         ratingEstrelas: 4.3,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '6',
@@ -84,8 +94,10 @@ class AutonomousRepository {
         tipoAtendimento: 'Residencial',
         horarioFuncionamento: 'Seg-Sex: 9:00 AM - 5:00 PM',
         ratingEstrelas: 4.9,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '7',
@@ -98,8 +110,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sex: 8:00 AM - 5:30 PM',
         ratingEstrelas: 4.2,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '8',
@@ -112,8 +126,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
         ratingEstrelas: 5.0,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '9',
@@ -126,8 +142,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
         ratingEstrelas: 5.0,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '10',
@@ -140,8 +158,10 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
         ratingEstrelas: 5.0,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
     AutonomousModels(
       id: '11',
@@ -154,9 +174,27 @@ class AutonomousRepository {
         tipoAtendimento: 'A domicílio',
         horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
         ratingEstrelas: 5.0,
+        telefone: '(14) 995684-5548',
       ),
       urlImage: 'assets/logo.png',
+      telefone: '(14) 995684-5548',
     ),
+    AutonomousModels(
+      id: '12',
+      name: 'Guilherme Doretto',
+      autonomous: 'Desenvolvedor',
+      description: DescricaoModels(
+        id: '12',
+        endereco: 'Rua Santo Antonio, 122',
+        descricao: 'Futuro formando da FATEC-Garça e desenvolvedor Flutter',
+        tipoAtendimento: 'Home Office',
+        horarioFuncionamento: 'Seg-Sab: 8:00 AM - 6:30 PM',
+        ratingEstrelas: 5.0,
+        telefone: '(14) 99871-1677',
+      ),
+      urlImage: 'assets/logo.png',
+      telefone: '(14) 99871-1677',
+    )
   ];
 
   getAutonomousByCategory(String categoria) {}

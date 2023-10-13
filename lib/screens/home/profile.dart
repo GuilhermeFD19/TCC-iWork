@@ -5,7 +5,6 @@ import 'package:iwork_project/models/autonomous_models.dart';
 import 'package:iwork_project/providers/auth_provider.dart';
 import 'package:iwork_project/screens/home/base_view.dart';
 import 'package:iwork_project/screens/login.dart';
-import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override

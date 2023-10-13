@@ -32,6 +32,8 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
     'Pedreiro',
     'Cabeleireiro',
     'Manicure',
+    'Jardineiro',
+    'Desenvolvedor',
   ];
 
   List<String> filteredProfessionals = [];
@@ -62,38 +64,40 @@ class _ProfessionalListScreenState extends State<ProfessionalListScreen> {
         elevation: 3.8,
         margin: const EdgeInsets.all(8.0),
         color: Color.fromARGB(255, 53, 160, 223),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailHomeScreen(
-                        categoria: filtered,
-                        nome: filtered,
-                        autonomous: filtered,
-                      ),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailHomeScreen(
+                  categoria: filtered,
+                  nome: filtered,
+                  autonomous: filtered,
+                ),
+              ),
+            );
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 75.0),
+                  child: Text(
+                    filtered,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Arial',
                     ),
-                  );
-                },
-                child: Text(
-                  filtered,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Arial',
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
       cards.add(card);
